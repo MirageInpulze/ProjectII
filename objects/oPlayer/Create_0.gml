@@ -13,7 +13,7 @@ spdCollided = 1.5;
 distanceRoll = 72;
 distanceCollided = 40;
 distanceCollidedHeight = 12;
-
+animationEndScript = -1;
 
 spriteWalk = sPlayerWalk
 spriteRoll = sPlayerRoll

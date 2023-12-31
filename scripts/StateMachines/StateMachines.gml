@@ -61,6 +61,11 @@ FourDirectionAnimate();
 			//	}
 			//}
 			 var _e = instance_nearest(x, y, pEntity);
+			if (global.iLifted != noone)
+			{
+				PlayerThrow();
+			}
+			 
 		if (_e != noone)
 		{
 			if (point_distance(x, y, _e.x, _e.y) < 25)
@@ -143,4 +148,89 @@ function PlayerCollided()
 function PlayerAttack()
 {
 	script_execute(stateAttack)
+}
+
+function PlayerStateAct()
+{
+	FourDirectionAnimate();
+	if (animationEnd)
+	{
+		state =  PlayerWalking;
+		animationEnd = false;
+		if (animationEndScript != -1)
+		{
+			script_execute(animationEndScript);
+			animationEndScript = -1;
+		}
+	}
+}
+
+function PlayerActOutAnimation(sprite, endScript = -1)
+
+{
+	//Carry out an animation and optionally carry out a script when the animation ends
+	state = PlayerStateAct;
+	sprite_index = sprite;
+	animationEndScript = endScript;
+	localFrame = 0;
+	image_index = 0;
+	FourDirectionAnimate();
+
+}
+
+function TileCollision()
+{
+	var collision = false;
+	if (tilemap_get_at_pixel(collisionMap, x+hSpeed, y))
+	{
+		x -= x mod TILE_SIZE;
+		if (hSpeed > 0) x += TILE_SIZE - 1;
+		spd = 0;
+		collision = true;
+	}
+	else
+		x += hSpeed;
+	if (tilemap_get_at_pixel(collisionMap, x, y+vSpeed))
+	{
+		y -= y mod TILE_SIZE;
+		if (vSpeed > 0) y += TILE_SIZE - 1;
+		spd = 0;
+		collision = true;
+	}
+	else
+		y += vSpeed;
+	return collision;
+}
+
+function ActivateLiftable(id)
+{
+	if (global.iLifted == noone)
+	{
+		PlayerActOutAnimation(sPlayerLift);
+		global.iLifted = id;
+		with (global.iLifted)
+		{
+			state = STATES.LIFTED;
+			persistent = true;
+			entityCollision = false;
+			entityActivateScript = -1;
+		}
+	}
+}
+
+function PlayerThrow()
+{
+	with (global.iLifted)
+	{
+		state = STATES.THROWN;
+		persistent = false;
+		direction = other.direction;
+		z = 13;
+		throwPeakHeight = z + 10;
+		throwDistanceTravelled = 0;
+		throwStartPercent = (13/throwPeakHeight) * 0.5;
+		throwPercent = throwStartPercent;
+	}
+	PlayerActOutAnimation(sPlayerLift);
+	global.iLifted = noone;
 }

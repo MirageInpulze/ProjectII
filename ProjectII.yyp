@@ -37,7 +37,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.11.0.121",
+    "IDEVersion": "2023.11.1.129",
   },
   "resources": [
     {"id":{"name":"oTextQueued","path":"objects/oTextQueued/oTextQueued.yy",},},
@@ -52,7 +52,9 @@
     {"id":{"name":"sPlayerRoll","path":"sprites/sPlayerRoll/sPlayerRoll.yy",},},
     {"id":{"name":"sBat","path":"sprites/sBat/sBat.yy",},},
     {"id":{"name":"oFragment","path":"objects/oFragment/oFragment.yy",},},
+    {"id":{"name":"sPot","path":"sprites/sPot/sPot.yy",},},
     {"id":{"name":"sAttackExplode","path":"sprites/sAttackExplode/sAttackExplode.yy",},},
+    {"id":{"name":"sPlayerLift","path":"sprites/sPlayerLift/sPlayerLift.yy",},},
     {"id":{"name":"fnM5x7","path":"fonts/fnM5x7/fnM5x7.yy",},},
     {"id":{"name":"AttackStateMachines","path":"scripts/AttackStateMachines/AttackStateMachines.yy",},},
     {"id":{"name":"sSignpost","path":"sprites/sSignpost/sSignpost.yy",},},
@@ -82,6 +84,7 @@
     {"id":{"name":"oBattleUnitPC","path":"objects/oBattleUnitPC/oBattleUnitPC.yy",},},
     {"id":{"name":"sLuluAttack","path":"sprites/sLuluAttack/sLuluAttack.yy",},},
     {"id":{"name":"oBattleUnitEnemy","path":"objects/oBattleUnitEnemy/oBattleUnitEnemy.yy",},},
+    {"id":{"name":"oPot","path":"objects/oPot/oPot.yy",},},
     {"id":{"name":"StateMachines","path":"scripts/StateMachines/StateMachines.yy",},},
     {"id":{"name":"sPlayerWalk","path":"sprites/sPlayerWalk/sPlayerWalk.yy",},},
     {"id":{"name":"oNPCOne","path":"objects/oNPCOne/oNPCOne.yy",},},
