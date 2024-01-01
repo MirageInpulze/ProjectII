@@ -16,8 +16,12 @@ if (hits > 0)
 			with(hitID)
 			{
 				
-				
-				if (entityHitScript != -1) script_execute(entityHitScript)
+				if (object_is_ancestor(object_index, pEnemy))
+				{
+					HurtEnemy(id, 1, other.id, 10);
+					
+				}
+				else if (entityHitScript != -1) script_execute(entityHitScript)
 				
 				
 			}
@@ -29,6 +33,36 @@ if (hits > 0)
 
 mask_index = sPlayerWalk
 }
+
+function HurtEnemy(_enemy, _damage, _source, _knockback)
+{
+	with (_enemy)
+	{
+		if (state != enemystate.die && flash == 0)
+		{
+			enemyHP -= _damage;
+			flash = 1;
+			image_index = 0;
+			knockback = _knockback > 0;
+			if (knockback)
+			{
+				var _knockDirection = point_direction(_source.x, _source.y, x, y);
+				xTo = x + lengthdir_x(_knockback, _knockDirection);
+				yTo = y + lengthdir_y(_knockback, _knockDirection);
+			}
+			//Hurt or dead?
+			if (enemyHP <= 0)
+				state = enemystate.die;
+			else
+			{
+				if (state != enemystate.hurt)
+					statePrevious = state;
+				state = enemystate.hurt;
+			}
+		}
+	}
+}
+	
 
 function AttackSlash()
 {

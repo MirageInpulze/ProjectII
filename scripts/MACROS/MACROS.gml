@@ -4,3 +4,14 @@
 #macro FRAME_RATE 60
 #macro CARDINAL_DIR round(direction/90)
 #macro ROOM_START rVillage
+
+enum enemystate
+{
+	idle,
+	wander,
+	chase,
+	attack,
+	hurt,
+	die,
+	wait
+}
