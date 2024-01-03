@@ -12,8 +12,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Field",
-    "path": "folders/Objects/Field.yy",
+    "name": "Mangement",
+    "path": "folders/Objects/Field/Mangement.yy",
   },
   "parentObjectId": null,
   "persistent": true,
