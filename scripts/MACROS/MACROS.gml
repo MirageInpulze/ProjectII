@@ -15,3 +15,12 @@ enum enemystate
 	die,
 	wait
 }
+
+enum item
+{
+	none,
+	bomb,
+	bow,
+	hook,
+	TYPE_COUNT
+}

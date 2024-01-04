@@ -7,8 +7,11 @@ keyRoll = keyboard_check_pressed(vk_shift);
 keyAttack = mouse_check_button(mb_left);
 keyItem = mouse_check_button(mb_right);
 
-
-if (!global.GamePaused) script_execute(state);
-
+if (!global.GamePaused) 
+{
+	script_execute(state);
+	invulnerable = max (invulnerable -1, 0);
+	flash = max(flash-.05, 0);
+}
 depth = -bbox_bottom
 

@@ -74,6 +74,14 @@ function DialougeResponse(_message)
 		case 1: NewTextBox("Response A Recieved", 1);  break;
 		case 2: NewTextBox("Response B Recieved. Any Further Response?", 1, ["3:Yes","0:No"]); break;
 		case 3: NewTextBox("Thanks For All Responses!", 1); break;
+		case 4: 
+		{
+			NewTextBox("Thanks!", 2);
+			NewTextBox("I think the hat is somewhere within that scary cave over the west. Good luck out there!", 2);
+			global.questStatus[? "TheHatQuest"] = 1;
+		}
+		break;
+		case 5: NewTextBox("Ah! I'll always be here if you want to talk to me!", 2); break;
 		default: break;
 	}
 }

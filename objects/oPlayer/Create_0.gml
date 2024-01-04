@@ -21,6 +21,9 @@ animIndex = 0;
 vSpeed = 0;
 hSpeed = 0;
 z = 0;
+invulnerable = 0;
+flash = 0;
+flashShader = shWhiteFlash;
 
 if (global.targetX != -1)
 {

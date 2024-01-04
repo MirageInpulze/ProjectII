@@ -1,37 +1,60 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function CalculateAttack(mask_index)
-{
-var hitByAttackNow = ds_list_create();
-var hits = instance_place_list(x, y, pEntity, hitByAttackNow, false);
-if (hits > 0)
-{
-	for (var i = 0; i < hits; i++)
-	{
-		//If instance has not been hit by this attack, hit
-		var hitID = hitByAttackNow[| i];
-		if (ds_list_find_index(hitByAttack, hitID) == -1)
-		{
-			ds_list_add(hitByAttack, hitID);
-			with(hitID)
-			{
+//function CalcAttack(mask_index)
+//{
+//var hitByAttackNow = ds_list_create();
+//var hits = instance_place_list(x, y, pEntity, hitByAttackNow, false);
+//	if (hits > 0)
+//	{
+//		for (var i = 0; i < hits; i++)
+//		{
+//			//If instance has not been hit by this attack, hit
+//			var hitID = hitByAttackNow[| i];
+//			if (ds_list_find_index(hitByAttack, hitID) == -1)
+//			{
+//				ds_list_add(hitByAttack, hitID);
+//				with(hitID)
+//				{
 				
-				if (object_is_ancestor(object_index, pEnemy))
-				{
-					HurtEnemy(id, 1, other.id, 10);
-					
-				}
-				else if (entityHitScript != -1) script_execute(entityHitScript)
+
+//					
 				
 				
-			}
+//				}
 			
+//			}
+//		}
+//	}
+//mask_index = sPlayerAttackSlashHB
+//}
+
+function CalcAttack(_hitbox)
+{
+	mask_index = _hitbox;
+	var _hitByAttackNow = ds_list_create();
+	var _hits = instance_place_list(x, y, pEntity, _hitByAttackNow, false);	
+	if (_hits > 0)
+	{
+		for (var _i = 0; _i < _hits; _i++)
+		{
+			// if this instance has not yet been hit by this attack hit it
+			var _hitID = _hitByAttackNow[| _i];
+			if (ds_list_find_index(hitByAttack, _hitID) == -1)
+			{
+				ds_list_add(hitByAttack, _hitID);
+				with(_hitID)
+				{
+					if (object_is_ancestor(object_index, pEnemy))
+					{
+						HurtEnemy(id, 1, other.id, 10);
+					}
+					else if (entityHitScript != -1) script_execute(entityHitScript)
+				}
+			}
 		}
 	}
-}
-
-
-mask_index = sPlayerWalk
+	ds_list_destroy(_hitByAttackNow);
+	mask_index = sPlayerWalk;
 }
 
 function HurtEnemy(_enemy, _damage, _source, _knockback)
@@ -69,7 +92,7 @@ function AttackSlash()
 	if (sprite_index != sPlayerAttackSlash)
 	{
 		//Animation setup
-		sprite_index =sPlayerAttackSlash
+		sprite_index = sPlayerAttackSlash
 		localFrame = 0;
 		image_index = 0;
 		
@@ -79,7 +102,7 @@ function AttackSlash()
 		
 	}
 	
-	CalculateAttack(sPlayerAttackSlashHB)
+	CalcAttack(sPlayerAttackSlashHB)
 	
 	FourDirectionAnimate();
 	if (animationEnd)
