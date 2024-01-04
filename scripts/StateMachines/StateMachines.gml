@@ -242,7 +242,7 @@ function PlayerThrow()
 }
 
 function Instance_Nearest_Without_Value(x, y, obj, variable_name, variable_value){
-var distance = 10000000;
+var distance = 26;
 var nearest = undefined;
 
 if (instance_exists(obj)){
@@ -263,7 +263,7 @@ return nearest;
 }
 
 function Instance_Nearest_With_Value(x, y, obj, variable_name, variable_value){
-var distance = 10000000;
+var distance = 26;
 var nearest = undefined;
 
 if (instance_exists(obj)){
