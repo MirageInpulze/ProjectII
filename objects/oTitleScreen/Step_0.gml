@@ -20,14 +20,14 @@ if (keyboard_check_pressed(vk_up))
 
 if (keyboard_check_pressed(vk_down))
 {
-	slotsSelected -= 1;
+	slotsSelected += 1;
 	if (slotsSelected > 2) slotsSelected = 0;
 }
 
 if (keyboard_check_pressed(vk_space))
 {
 	global.gameSaveSlot = slotsSelected;
-	if (!LoadGame(global.gameSaveSlot));
+	if (!LoadGame(global.gameSaveSlot))
 	{
 		room_goto(rVillage);
 	}

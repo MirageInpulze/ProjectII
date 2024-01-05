@@ -49,7 +49,6 @@ function PurchaseItem(_item, _amount, _cost)
 		global.playerItemUnlocked[_item] = true;
 		global.playerAmmo[_item] += _amount;
 		global.playerMoney -= _cost;
-		instance_destroy(activate);
 		var _desc = "";
 		switch (_item)
 		{
@@ -62,6 +61,6 @@ function PurchaseItem(_item, _amount, _cost)
 	}
 	else
 	{
-		NewTextBox("You need more coins to buy that...\nThough they are not going away anytime soon! Come back when you have enough!");
+		NewTextBox("You need more coins to buy that...\nThough they are not going away anytime soon! Come back when you have enough!",1);
 	}
 }

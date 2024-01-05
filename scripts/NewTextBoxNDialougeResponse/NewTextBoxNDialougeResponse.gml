@@ -82,7 +82,7 @@ function DialougeResponse(_message)
 		}
 		break;
 		case 5: NewTextBox("Ah! I'll always be here if you want to talk to me!", 2); break;
-		case 6: PurchaseItem(id.item, id.itemAmount, id.itemCost); break;
+		case 6: with(instance_nearest(x,y,oShopItem)){PurchaseItem(item, itemAmount, itemCost); break;}
 		default: break;
 	}
 }

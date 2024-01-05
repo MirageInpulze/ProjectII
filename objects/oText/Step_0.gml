@@ -26,6 +26,14 @@ if (oPlayer.keyActivate)
 		
 		if (responses[0] != -1)
 		{
+			if (instance_exists(other))
+			{
+				originInstance = other.id;
+			}
+			else
+			{
+				originInstance = noone;
+			}
 			with (originInstance)
 			DialougeResponse(other.responseScripts[other.responseSelected]);
 		}

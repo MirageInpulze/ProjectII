@@ -16,20 +16,20 @@ if (slotsVisible > 0)
 	for (var _slot = 0; _slot <= 2; _slot++)
 	{
 		var _y = 16+_slot*48
-		var _x = 160;
+		var _x = 60;
 		var _img = 2;
 		if(slotsSelected == _slot)
 		{
 			_img = 3;
 			draw_sprite(sMenuPlayer,0,_x-32,_y+24);
 		}
-	draw_sprite_stretched(sTextBox, _img, _x, _y, 312, 48)
+	draw_sprite_stretched(sTextBox, _img, _x, _y, 200, 48)
 	}
 	draw_set_font(fnM5x7)
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_color(c_white);
-	if (slotsData[_slot] == -1) // empty save file
+	if (slotsData[_slot] == -1 || slotsData[_slot] == undefined) // empty save file
 	{
 		draw_text(_x + 8, y+8, "Start New Game");
 	}

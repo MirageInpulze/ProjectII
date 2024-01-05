@@ -61,10 +61,19 @@ FourDirectionAnimate();
 			//		}	
 			//	}
 			//}
-			 var _e = instance_nearest(x, y, pEntity);
-			if (global.iLifted != noone)
+			 
+			if (global.iLifted = noone)
 			{
-				PlayerThrow();
+				var _e = instance_nearest(x, y, pEntity);
+			}
+			else if (global.iLifted != noone){
+				if(Instance_Nearest_Without_Value(x,y,pEntity,"entityActivateScript",-1)!=undefined){
+					var _e = Instance_Nearest_Without_Value(x,y,pEntity,"entityActivateScript",-1);
+				}
+				else{
+					var _e = instance_nearest(x, y, pEntity);
+					PlayerThrow();
+				}
 			}
 		if (_e != noone)
 		{
@@ -669,26 +678,46 @@ function PlayerHook()
 //	global.iLifted = noone;
 //}
 
-//function Instance_Nearest_With_Value(x, y, obj, variable_name, variable_value){
-//var distance = 10000000;
-//var nearest = undefined;
+function Instance_Nearest_Without_Value(x, y, obj, variable_name, variable_value){
+var distance = 25;
+var nearest = undefined;
 
-//if (instance_exists(obj)){
-//	for (var i = 0; i < instance_number(obj); i++){
-//		var inst = instance_find(obj, i);
-//		if (variable_instance_exists(inst, variable_name)){
-//			if (variable_instance_get(inst, variable_name) != variable_value){
-//				var dist = point_distance(x, y, inst.x, inst.y);
-//				if (dist < distance){
-//					distance = dist;
-//					nearest = inst;
-//				}
-//			}
-//		}
-//	}
-//}
-//return nearest;
-//}
+if (instance_exists(obj)){
+	for (var i = 0; i < instance_number(obj); i++){
+		var inst = instance_find(obj, i);
+		if (variable_instance_exists(inst, variable_name)){
+			if (variable_instance_get(inst, variable_name) != variable_value){
+				var dist = point_distance(x, y, inst.x, inst.y);
+				if (dist < distance){
+					distance = dist;
+					nearest = inst;
+				}
+			}
+		}
+	}
+}
+return nearest;
+}
+function Instance_Nearest_With_Value(x, y, obj, variable_name, variable_value){
+var distance = 25;
+var nearest = undefined;
+
+if (instance_exists(obj)){
+	for (var i = 0; i < instance_number(obj); i++){
+		var inst = instance_find(obj, i);
+		if (variable_instance_exists(inst, variable_name)){
+			if (variable_instance_get(inst, variable_name) == variable_value){
+				var dist = point_distance(x, y, inst.x, inst.y);
+				if (dist < distance){
+					distance = dist;
+					nearest = inst;
+				}
+			}
+		}
+	}
+}
+return nearest;
+}
 
 //function PlayerDropItem()
 //{

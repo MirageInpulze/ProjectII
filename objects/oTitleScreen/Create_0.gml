@@ -7,7 +7,7 @@ slotsVisible = 0.0;
 slotsSelected = 0;
 loadingStarted = false;
 
-for (var _slot = 0; _slot <= 2; _slot++)
+for (var _slot = 0; _slot <= 3; _slot++)
 {
 	var _filename = "save" + string(_slot) + ".mzk";
 	if (file_exists(_filename))

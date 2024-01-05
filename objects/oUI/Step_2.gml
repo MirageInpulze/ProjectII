@@ -17,7 +17,7 @@ if (global.GamePaused)
 		{
 			case 0: //Continue
 			{
-				global.gamePaused = false;
+				global.GamePaused = false;
 				with (all)
 				{
 					gamePausedImageSpeed = image_speed;
