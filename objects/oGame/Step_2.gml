@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if(keyboard_check_pressed(vk_escape))
+if(keyboard_check_pressed(vk_escape)) && (oUI.visible = true)
 {
 	global.GamePaused = !global.GamePaused;
 	if (global.GamePaused)

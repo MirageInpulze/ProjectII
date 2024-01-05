@@ -9,4 +9,26 @@
 
 // Inherit the parent event
 event_inherited();
-entityDropList = [oCoin, oCoin, oCoin];
+entityDropList = choose
+(
+[oArrowDrop],
+[oArrowDrop],
+[oArrowDrop],
+[oArrowDrop],
+[oCoin, oCoin, oCoin],
+[oCoin, oCoin, oCoin],
+[oCoin, oCoin, oCoin],
+[oCoin, oCoin, oCoin],
+[oCoin, oCoin, oCoin],
+[oBombDrop],
+[oBombDrop],
+[oBombDrop],
+[oBombDrop],
+[oBombDrop],
+-1,
+-1,
+-1,
+-1,
+-1,
+-1,
+);

@@ -1,0 +1,43 @@
+{
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "oBombDrop",
+  "eventList": [],
+  "managed": true,
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"pEntity","path":"objects/pEntity/pEntity.yy",},"propertyId":{"name":"entitiyShadow","path":"objects/pEntity/pEntity.yy",},"value":"True",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"pCollectable","path":"objects/pCollectable/pCollectable.yy",},"propertyId":{"name":"collectScriptArg","path":"objects/pCollectable/pCollectable.yy",},"value":"[item.bomb, 1]",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"pCollectable","path":"objects/pCollectable/pCollectable.yy",},"propertyId":{"name":"collectScript","path":"objects/pCollectable/pCollectable.yy",},"value":"CollectAmmo",},
+  ],
+  "parent": {
+    "name": "Field",
+    "path": "folders/Objects/Field.yy",
+  },
+  "parentObjectId": {
+    "name": "pCollectable",
+    "path": "objects/pCollectable/pCollectable.yy",
+  },
+  "persistent": false,
+  "physicsAngularDamping": 0.1,
+  "physicsDensity": 0.5,
+  "physicsFriction": 0.2,
+  "physicsGroup": 1,
+  "physicsKinematic": false,
+  "physicsLinearDamping": 0.1,
+  "physicsObject": false,
+  "physicsRestitution": 0.1,
+  "physicsSensor": false,
+  "physicsShape": 1,
+  "physicsShapePoints": [],
+  "physicsStartAwake": true,
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"spd","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
+  ],
+  "solid": false,
+  "spriteId": {
+    "name": "sBombDrop",
+    "path": "sprites/sBombDrop/sBombDrop.yy",
+  },
+  "spriteMaskId": null,
+  "visible": true,
+}

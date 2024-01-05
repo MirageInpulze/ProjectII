@@ -2,7 +2,7 @@ state = PlayerWalking;
 stateAttack = AttackSlash;
 hitByAttack = -1;
 lastState = state;
-
+image_speed = 0;
 
 
 collisionMap = layer_tilemap_get_id(layer_get_id("lCollision"));
@@ -10,10 +10,17 @@ textBoxDelay = 0;
 spdWalk = 2;
 spdRoll = 3;
 spdCollided = 1.5;
+spdHook = 4.0;
+distanceHook = 96;
 distanceRoll = 72;
 distanceCollided = 40;
 distanceCollidedHeight = 12;
 animationEndScript = -1;
+
+hook = 0;
+hookX = 0;
+hookY = 0;
+hookSize = sprite_get_width(sHookChain);
 
 spriteWalk = sPlayerWalk
 spriteRoll = sPlayerRoll

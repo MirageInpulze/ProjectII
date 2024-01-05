@@ -32,6 +32,19 @@ if (instance_exists(oPlayer))
 	}
 }
 
+//bounce
+	if(bounceCount != 0)
+	{
+		bounce += (pi * bounceSpeed);
+		if (bounce > pi)
+		{
+			bounce -= pi;
+			bounceHeight *= 0.6;
+			bounceCount--;
+		}
+		z = abs(sin(bounce))*bounceHeight
+	}
+	else z = 0;
 
 x += lengthdir_x(random_range(0,spd),direction);
 y += lengthdir_y(random_range(0,spd),direction);

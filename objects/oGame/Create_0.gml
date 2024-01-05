@@ -2,6 +2,11 @@
 // You can write your code in this editor
 randomize();
 
+global.gameSaveSlot = 0;
+
+
+
+
 global.GamePaused = false;
 global.textspeed = .75;
 global.isTextboxClosed = false;
@@ -9,7 +14,7 @@ global.targetRoom = -1;
 global.targetX = -1;
 global.targetY = -1;
 global.targetDirection = 0;
-global.playerMoney = 0;
+global.playerMoney = 110;
 global.playerHealthMax = 3;
 global.playerHealth = global.playerHealthMax;
 
@@ -20,11 +25,6 @@ global.playerAmmo = array_create(item.TYPE_COUNT, -1);
 global.playerItemUnlocked = array_create(item.TYPE_COUNT, false);
 global.playerAmmo[item.bomb] = 0;
 global.playerAmmo[item.bow] = 0;
-
-//TODO: DELETE THESE
-global.playerHasAnyItems = true;
-global.playerItemUnlocked[item.bomb] = true;
-global.playerAmmo[item.bomb] = 5;
 
 global.questStatus = ds_map_create();
 global.questStatus [? "TheHatQuest"] = 0;

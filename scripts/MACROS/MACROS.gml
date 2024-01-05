@@ -3,7 +3,7 @@
 #macro RESOLUTION_H 360
 #macro FRAME_RATE 60
 #macro CARDINAL_DIR round(direction/90)
-#macro ROOM_START rVillage
+#macro ROOM_START rTitle
 
 enum enemystate
 {
@@ -23,4 +23,14 @@ enum item
 	bow,
 	hook,
 	TYPE_COUNT
+}
+
+enum hookstatus
+{
+	extending,
+	pulltoplayer,
+	pulltoentity,
+	missed,
+	
+	
 }

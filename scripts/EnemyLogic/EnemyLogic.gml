@@ -150,7 +150,7 @@ function SlimeAttack()
 	}
 }
 
-function SlimeHurt()
+function GenericEnemyHurt()
 
 {
 	sprite_index = sSlimeHurt;
@@ -172,7 +172,7 @@ function SlimeHurt()
 		state = (statePrevious != enemystate.attack ? statePrevious : enemystate.chase);
 }
 
-function SlimeDie()
+function GenericEnemyDie()
 {
 	sprite_index = sprDie;
 	image_speed = 1.0;
@@ -251,4 +251,100 @@ function HurtPlayer (_direction, _force, _damage)
 			}
 		}
 	}
+}
+
+function BatWander()
+{
+	//Bat always flap wings
+	image_speed = 1.0;
+	sprite_index = sprMove;
+	//At destination or done?
+	if ((x == xTo) && (y == yTo)) || (timePassed > enemyWanderDistance / enemySpeed)
+	{
+		hSpeed = 0;
+		vSpeed = 0;
+		////End move-Bat always flap wings so no needed
+		//if (image_index < 1)
+		//{
+		//	image_speed = .0;
+		//	image_index = 0;
+			
+		//}
+		//Set new destination
+		if (++wait >= waitDuration)
+		{
+			wait = 0;
+			timePassed = 0;
+			dir = point_direction(x, y, xstart, ystart) + irandom_range(-45, 45);
+			xTo = x + lengthdir_x(enemyWanderDistance, dir);
+			yTo = y + lengthdir_y(enemyWanderDistance, dir);
+			
+		}
+	}
+	else //Move to new destination
+	{
+		timePassed++;
+		//Bat always flap wings so no needed
+		//image_speed = 1.0;
+		var _distanceToGo = point_distance(x, y, xTo, yTo);
+		var _speedThisFrame = enemySpeed;
+		if (_distanceToGo < enemySpeed) _speedThisFrame = _distanceToGo;
+		dir = point_direction(x, y, xTo, yTo);
+		hSpeed = lengthdir_x(_speedThisFrame, dir);
+		vSpeed = lengthdir_y(_speedThisFrame, dir);
+		//Flipping sprite based on direction
+		if (hSpeed != 0) image_xscale = sign(hSpeed);
+		
+		//Collide and Move
+		var _collided = EnemyTileCollision();
+		
+	}
+	// Aggro Check
+	if (++aggroCheck >= aggroCheckDuration)
+	{
+		aggroCheck = 0;
+		if (instance_exists(oPlayer)) && (point_distance(x, y, oPlayer.x, oPlayer.y) <= enemyAggroRadius)
+		{
+			state = enemystate.chase;
+			target = oPlayer;
+			
+			
+		}
+		
+	}
+}
+
+function BatChase()
+{
+	sprite_index = sprMove;
+	if (instance_exists(target))
+	{
+		xTo = target.x;
+		yTo = target.y;
+		var _distanceToGo = point_distance(x, y, xTo, yTo);
+		image_speed = 1.0;
+		dir = point_direction(x, y, xTo, yTo);
+		if (_distanceToGo > enemySpeed)
+		{
+			hSpeed = lengthdir_x(enemySpeed, dir);
+			vSpeed = lengthdir_y(enemySpeed, dir);
+			
+		}
+		if (hSpeed != 0) image_xscale = sign(hSpeed);
+		//Collison and Move
+		EnemyTileCollision();
+	}
+	//Too far abandon
+	if (_distanceToGo >= enemyGiveUpRange) state = enemystate.wander;
+	//Close enough strike-Bat does not care since no attack animation
+	//if (instance_exists(target) && (point_distance(x, y, target.x, target.y) <= enemyAttackRadius))
+	//{
+	//	state = enemystate.attack;
+	//	sprite_index = sprAttack;
+	//	image_index = 0;
+	//	image_speed = 1.0;
+	//	//target 8 pixel past the player
+	//	xTo += lengthdir_x(8, dir);
+	//	yTo += lengthdir_y(8, dir);	
+	//}
 }

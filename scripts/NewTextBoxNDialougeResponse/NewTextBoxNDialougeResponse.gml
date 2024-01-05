@@ -82,6 +82,19 @@ function DialougeResponse(_message)
 		}
 		break;
 		case 5: NewTextBox("Ah! I'll always be here if you want to talk to me!", 2); break;
+		case 6: PurchaseItem(id.item, id.itemAmount, id.itemCost); break;
 		default: break;
+	}
+}
+
+
+function RoomToArenaName(_room)
+{
+	switch (_room)
+	{
+		case rVillage: return "The Village"; break;
+		case rCave: return "The Western Cave"; break;
+		case rHouse: return "Shopkeeper's House"; break;
+		default: return "?????"; break;
 	}
 }
