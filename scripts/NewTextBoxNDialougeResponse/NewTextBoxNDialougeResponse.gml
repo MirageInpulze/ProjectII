@@ -88,7 +88,7 @@ function DialougeResponse(_message)
 }
 
 
-function RoomToArenaName(_room)
+function RoomToAreaName(_room)
 {
 	switch (_room)
 	{

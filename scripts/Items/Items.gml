@@ -16,7 +16,7 @@ function UseItemBow()
 	if (global.playerAmmo[item.bow] > 0) && (global.iLifted == noone)
 	{
 		global.playerAmmo[item.bow]--;
-		PlayerActOutAnimation(sPlayerBow, PlayerFireArrow);
+		PlayerActOutAnimation(sPlayerBow, PlayerFireArrow());
 		
 	}
 }
@@ -49,6 +49,7 @@ function PurchaseItem(_item, _amount, _cost)
 		global.playerItemUnlocked[_item] = true;
 		global.playerAmmo[_item] += _amount;
 		global.playerMoney -= _cost;
+		global.playerEquipped = _item;
 		var _desc = "";
 		switch (_item)
 		{
