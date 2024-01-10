@@ -10,3 +10,11 @@ function CollectAmmo(_array)
 	// array = [type, amount]
 	global.playerAmmo[_array[0]] += _array[1];
 }
+
+function CollectHealth(_amount)
+
+{
+
+	global.playerHealth += _amount;
+
+}

@@ -109,6 +109,7 @@
     {"id":{"name":"sPlayerWalk","path":"sprites/sPlayerWalk/sPlayerWalk.yy",},},
     {"id":{"name":"sCoin","path":"sprites/sCoin/sCoin.yy",},},
     {"id":{"name":"sHookBlade","path":"sprites/sHookBlade/sHookBlade.yy",},},
+    {"id":{"name":"oHeartDrop","path":"objects/oHeartDrop/oHeartDrop.yy",},},
     {"id":{"name":"sExplode","path":"sprites/sExplode/sExplode.yy",},},
     {"id":{"name":"oNPCOne","path":"objects/oNPCOne/oNPCOne.yy",},},
     {"id":{"name":"sCoinUI","path":"sprites/sCoinUI/sCoinUI.yy",},},

@@ -88,6 +88,7 @@
     {"name":"sPlayerWalk","order":12,"path":"sprites/sPlayerWalk/sPlayerWalk.yy",},
     {"name":"sCoin","order":35,"path":"sprites/sCoin/sCoin.yy",},
     {"name":"sHookBlade","order":47,"path":"sprites/sHookBlade/sHookBlade.yy",},
+    {"name":"oHeartDrop","order":32,"path":"objects/oHeartDrop/oHeartDrop.yy",},
     {"name":"sExplode","order":37,"path":"sprites/sExplode/sExplode.yy",},
     {"name":"oNPCOne","order":6,"path":"objects/oNPCOne/oNPCOne.yy",},
     {"name":"sCoinUI","order":38,"path":"sprites/sCoinUI/sCoinUI.yy",},
